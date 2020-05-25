@@ -1,0 +1,92 @@
+@import "./variables.scss";
+@import "./main.scss";
+
+html,
+body {
+  height: 100%;
+  font-family: $fontFamily;
+  font-size: 16px;
+}
+
+body {
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 400;
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+Link {
+  &:hover,
+  &:focus {
+    color: $lightBlue;
+  }
+}
+
+strong {
+  font-weight: 700;
+}
+
+.container {
+  width: 90%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.d-flex {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.main-title {
+  margin: 0;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+}
+
+@media (min-width: $breakpoint-tablet) {
+  html,
+  body {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: $breakpoint-mobileL) {
+  html,
+  body {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: $breakpoint-mobileM) {
+  html,
+  body {
+    font-size: 13px;
+  }
+}
+
+@media (min-width: $breakpoint-mobileS) {
+  html,
+  body {
+    font-size: 12px;
+  }
+}
