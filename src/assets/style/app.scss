@@ -1,5 +1,6 @@
 @import "./variables.scss";
 @import "./main.scss";
+@import "./content.scss";
 
 html,
 body {
@@ -12,6 +13,8 @@ body {
   width: 100vw;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
+  background-color: $powderWhite;
 }
 
 h1,
@@ -62,6 +65,16 @@ strong {
   user-select: none; /* Non-prefixed version, currently
                                     supported by Chrome, Edge, Opera and Firefox */
 }
+
+
+
+@media (min-width: $breakpoint-laptop) {
+  html,
+  body {
+    font-size: 25px;
+  }
+}
+
 
 @media (min-width: $breakpoint-tablet) {
   html,

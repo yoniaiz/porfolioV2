@@ -249,7 +249,7 @@
       top: 15%;
       left: 8%;
       text-align: left;
-      font-size: 2rem;
+      font-size: 3vh;
 
       .main-title {
         margin: 0;
@@ -289,11 +289,11 @@
 
           .circ {
             border-radius: 50%;
-            width: 65px;
+            width: 1em;
             display: block;
             position: absolute;
-            height: 65px;
-            top: calc(50% - 24px);
+            height: 1em;
+            top: calc(50% - .25em);
             right: -30px;
             display: inline-block;
             background-color: transparent;
