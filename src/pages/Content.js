@@ -1,18 +1,21 @@
-import React, { useRef } from "react";
+import React, { useRef, Fragment } from "react";
 import Sidebar from "components/Sidebar";
 import NavBar from "components/NavBar";
+import About from "components/About";
+
+import { sections } from "constants/general";
+
+function generateComponent(name) {
+  switch (name) {
+    case sections[0]:
+      return <About />;
+    default:
+      return <h1>default</h1>;
+  }
+}
 
 export default () => {
   const [toggleSideBar, setToggleSideBar] = React.useState(false);
-
-  const sections = [
-    "About",
-    "Skills",
-    "Experience",
-    "Projects",
-    "Resume",
-    "Contact",
-  ];
 
   const refs = useRef([]);
 
@@ -26,7 +29,7 @@ export default () => {
   };
 
   return (
-    <div className="content-container">
+    <div className="content-container" data-testid="content">
       <NavBar setToggleSideBar={setToggleSideBar} />
       <Sidebar
         onClick={scrollTo}
@@ -36,12 +39,26 @@ export default () => {
       />
       {sections.map((sec, index) => (
         <section
-          className="section"
+          className={`section ${(index + 1) % 2 == 0 ? "bg-green" : ""}`}
           id={sec}
           key={sec}
+          data-testid={sec}
           ref={(el) => (refs.current[index] = el)}
         >
-          {sec}
+          <div className="inner-section">{generateComponent(sec)}</div>
+          {index + 1 !== sections.length && (
+            <div
+              className={`triangle ${
+                (index + 1) % 2 == 0
+                  ? index + 1 > 2
+                    ? "right-down"
+                    : "left-down"
+                  : index + 1 > 2
+                  ? "right"
+                  : ""
+              }`}
+            />
+          )}
         </section>
       ))}
     </div>

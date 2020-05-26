@@ -2,7 +2,6 @@ import React from "react";
 //components
 import Main from "./Main";
 import Content from "./Content";
-
 //context
 import MainContext from "utils/context/MainContext";
 // styles components
@@ -20,7 +19,7 @@ function App() {
   return (
     <Theme>
       <MainContext.Provider value={toggleMain}>
-        {showContent ? <Content /> : <Main onClick={toggleMain} />}
+        {showContent ? <Content /> : <Main/>}
       </MainContext.Provider>
     </Theme>
   );

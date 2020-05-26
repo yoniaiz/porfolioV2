@@ -9,8 +9,16 @@ export default ({ onClick, sections, toggleSideBar, setToggleSideBar }) => {
 
   let navSections = sections.map((item, index) => ({
     description: item,
-    ref: () => onClick(index),
+    func: () => onClick(index),
   }));
+
+  navSections = [
+    ...navSections,
+    {
+      description: "Resume",
+      func: () => alert("Resume"),
+    },
+  ];
 
   useOnClickOutside(ref, () => setToggleSideBar(false));
 
@@ -21,15 +29,21 @@ export default ({ onClick, sections, toggleSideBar, setToggleSideBar }) => {
           <div>Yonatan Aizenshtein</div>
           <div className="sub">Full stack developer</div>
         </div>
-        <Scrollspy items={sections} currentClassName="active-nav">
+        <Scrollspy items={sections} currentClassName="active-nav" offset={-250}>
           {navSections.map((item, index) => (
-            <li className="nav-item link" onClick={item.ref} key={index}>
+            <li
+              className="nav-item link"
+              onClick={item.func}
+              key={index}
+              role="li"
+              data-testid={`link-${item.description}`}
+            >
               <NavLink item={item} />
             </li>
           ))}
         </Scrollspy>
       </div>
-      <div className={`blur-background ${toggleSideBar ? "show" : ""}`}/>
+      <div className={`blur-background ${toggleSideBar ? "show" : ""}`} />
     </Fragment>
   );
 };

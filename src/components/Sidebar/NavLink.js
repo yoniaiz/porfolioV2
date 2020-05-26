@@ -1,9 +1,9 @@
 import React, { Fragment } from "react";
 
-export default ({ item: { description, ref, sub } }) => {
+export default ({ item: { description, sub } }) => {
   return (
     <Fragment>
-      <div >{description}</div>
+      <div>{description}</div>
       {sub && <div className="sub">{sub}</div>}
     </Fragment>
   );
