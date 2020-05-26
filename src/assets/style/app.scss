@@ -68,6 +68,18 @@ strong {
 }
 
 
+.bg-green {
+  background-color: $lightGreen;
+}
+
+.white{
+  color: $powderWhite;
+}
+
+.blue{
+  color: $darkBlue;
+}
+
 
 @media (min-width: $breakpoint-laptop) {
   html,

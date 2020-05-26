@@ -4,11 +4,14 @@ import NavBar from "components/NavBar";
 import About from "components/About";
 
 import { sections } from "constants/general";
+import Skills from "components/Skills";
 
 function generateComponent(name) {
   switch (name) {
     case sections[0]:
       return <About />;
+    case sections[1]:
+      return <Skills />;
     default:
       return <h1>default</h1>;
   }

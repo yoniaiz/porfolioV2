@@ -83,7 +83,9 @@
 
   .section {
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
+    padding-bottom: 5%;
+    height: fit-content;
     position: relative;
   }
 }
@@ -157,6 +159,9 @@
     padding-left: 0px !important;
     height: 100vh;
   }
+  .triangle {
+    width: 100vw !important;
+  }
 }
 
 @media (min-width: $breakpoint-laptop) {
@@ -184,6 +189,9 @@
   .blur-background {
     display: none;
   }
+  .triangle {
+    width: calc(100vw - #{$sidebar}) !important;
+  }
 }
 
 .triangle {
@@ -191,13 +199,12 @@
   height: 0;
   background-color: $lightGreen;
   height: 4vh;
-  width: calc(100vw - #{$sidebar});
   clip-path: polygon(0 100%, 100% 0, 100% 100%, 0% 100%);
   position: absolute;
-  bottom: 0;
+  bottom: -1px;
   right: 0;
+  z-index: 1;
 }
-
 
 .right {
   transform: scaleX(-1);
@@ -205,10 +212,10 @@
 
 .right-down {
   transform: scaleY(-1);
-  bottom: -4vh !important;
+  bottom: calc(-4vh + 1px) !important;
 }
 
 .left-down {
   transform: scaleX(-1) scaleY(-1);
-  bottom: -4vh !important;
+  bottom: calc(-4vh + 1px) !important;
 }
